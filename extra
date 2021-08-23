@@ -1,0 +1,248 @@
+https://code.visualstudio.com/download
+https://nodejs.org/en/
+
+Basic JavaScript
+NPM
+Basic NodeJS(in built)(Os,file,http)
+NodeJS(full Stack App) (Node-EJS-Mongo-Express)
+Third Party Api (Weather Api)
+Redis  > 6379
+Node-Es6(.babel)
+MongoDb Basic >27017  (local/cloud)
+ImageUpload
+Api with NodeJS(Rest)>1
+Swagger
+DashBoard(Crud)
+Testing
+Email With Node(sendgird)(https://app.sendgrid.com/)
+Login/Logout(JWT)
+Oauth(with github)
+NodeJs with postgres
+Oauth(with google)
+Github
+--Deployment---
+Docker
+Heroku
+Nginx
+Pm2
+GraphQl API
+Paytm-Payment
+Chatapp
+FIREBASE
+--------NOT---------
+React/Angular
+Html/css/jquery
+
+///////////
+Node Single thread asynchronous non blocking I/O 
+
+JSON> JavaScript Object Notation
+[
+    {
+        name:'John',
+        class: 'Ui'
+    },
+    {
+        name:'Keev',
+        class: 'React',
+        city:'London'
+    }
+]
+
+////////////////////////////////
+package.json
+////////////////////////////////
+> Entry Point
+> scripts (start,stop,build,test )
+> packages (npm package)
+> meta data (name,version, description)
+
+////////////////////////////////
+How to generate package..json
+////////////////////////////////
+**NodeJs must be there in my system (node -v)
+> go inside the folder using cmd 
+> npm init
+> answer all questions
+
+
+> Local Dependencies
+> Dev Dependencies
+> Global Dependencies
+////////////////////////////////
+How to install local dependencies
+////////////////////////////////
+**NodeJs Must be install in the system
+> go inside the folder using cmd 
+> npm i packagename
+
+> npm uninstall packagename
+
+////////////////////////////////
+How to install dev dependencies
+////////////////////////////////
+**NodeJs Must be install in the system
+> go inside the folder using cmd 
+> npm i packagename --save-dev 
+
+
+Demo Meeting Link: https://zoom.us/j/86301775496
+Password:112233
+Demo Meeting Link: https://zoom.us/j/82829069013   
+Password: 112233
+
+
+////////////////////////////////
+es5 
+
+var a = 10
+var b = "my age is "+a 
+"my age is 10" 
+
+
+es6 
+var a = 10
+var b = `my age is ${a}`
+"my age is 10" 
+
+
+npm run keyname 
+
+////////////////////////////////
+Global package are independent of the application
+> it is use to start stop build your app 
+> it will not install in any folder of application
+> it will go in system directory mainly C drive 
+> It will also not add in package.json
+> Very few packages go global
+> need admin access to install package
+
+nodemon > restart the application as soon as detect any change
+
+
+////////////////////////////////
+Step to install Global package
+///////////////////////////////
+# window 
+> open cmd as admin 
+> npm i -g packagename 
+
+# mac/linux
+> open terminal 
+> sudo npm i -g packagename
+
+https://www.mongodb.com/try/download/community 
+>  in c drive create one folder by name of data/db
+
+
+//Sql 
+| Sno | Hindi | English | Computer
+| 1   | 80    |         |
+| 2   |       | 80      | 
+| 3   | 80    |         |    80
+
+//no-sql 
+[
+    {
+        sno:1,
+        Hindi:80
+    },
+    {
+        sno:2,
+        English:80
+    },
+    {
+        sno:3,
+        Hindi:80,
+        Computer:80
+    }
+]
+
+
+>>>>>>>>>>
+step to run mongodb 
+<<<<<<<<<<<< <<
+
+// Mongo Server //   
+> open first cmd 
+> go inside the mongodb folder 
+cd c:\program file\mongodb\server\4.4\bin 
+> mongod.exe  
+(Above step will start mongo server on port 27017)
+
+//// to Start mongo console /////
+> open second cmd   
+> go inside the mongodb folder 
+cd c:\program file\mongodb\server\4.4\bin 
+> mongo.exe       
+
+///////////
+params: /
+queryParams: ?
+
+///////////
+npm i ejs express request
+
+https://redis.io/download
+redis 6379
+
+> Keys *
+> set keyname value
+> get keyname
+> del keyname
+> FLUSH ALL
+
+
+npm i body-parser express express mongodb cors 
+npm i ejs chai chai-http 
+
+C> Create (post) (insert the data)
+R> Read   (get)  (retrive the data)
+U> Update (put)  (update the data)
+D> Delete (delete) (remove the data)
+
+/// https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
+// https://www.postman.com/
+
+
+echo "export SENDGRID_API_KEY='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'" > sendgrid.env
+
+npm i bcryptjs body-parser cors express jsonwebtoken mongoose 
+
+//////
+step to start postgres server
+> pg_ctl -D /usr/local/var/postgres start
+> 5324
+
+
+docker build . -t imagename
+docker image ls
+docker run -p 9800:7800 imagename
+
+
+//////Pm2/////
+npm i -g pm2
+pm2 start startfilename
+pm2 status 
+pm2 stop name
+
+///////////
+npm i express axios express-graphql graphql
+
+///dummy api///
+npm -g json-server
+
+json-server --watch db.json --port 8800
+{
+  product(id:3){
+    name,
+    delivery,
+    category
+  }
+}
+
+
+npm i -g firebase-tools
+firebase login
+firebase init
+firebase deploy
