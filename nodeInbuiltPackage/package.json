@@ -1,0 +1,12 @@
+{
+  "name": "nodeinbuiltpackage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fs.js",
+  "scripts": {
+    "start": "node server.js",
+    "codeTest":"node staticApi.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
