@@ -7,5 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "teja",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "zone.js": "^0.11.4"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.0"
+  }
 }
