@@ -1,11 +1,6 @@
 var express=require('express')
-var morgan = require('morgan')
 var app=express()
-var dotenv = require('dotenv')
-dotenv.config()
-var port=process.env.PORT || 5600
-var cityRouter=require('./src/router/cityRouter')
-var hotelsRouter=require('./src/router/hotelsRouter')
+var port=5600
 
 var hotels = [{
 	"id" : "6360",
@@ -208,13 +203,21 @@ var city = [
 		"country_flag_url": "https://b.zmtcdn.com/images/countries/flags/country_1.png",
     }
 ]
-//middleware 
-app.use(morgan('short'))
 app.get('/',function(req, res) {
     res.send('Hi from Express')
 })
-app.use('/city', cityRouter)
-app.use('/hotels',hotelsRouter)
+app.get('/city',(req,res)=>{
+    res.send(city)
+})
+app.get('/details',(req,res)=>{
+    res.send('details of city')
+})
+app.get('/details',(req,res)=>{
+    res.send('details of hotel')
+})
+app.get('/hotels',(req,res)=>{
+    res.send(hotels)
+})
 app.listen(port,function(err){
     if(err) throw err
     console.log(`server is running on ${port}`)

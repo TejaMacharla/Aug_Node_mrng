@@ -1,11 +1,5 @@
 var express=require('express')
-var morgan = require('morgan')
-var app=express()
-var dotenv = require('dotenv')
-dotenv.config()
-var port=process.env.PORT || 5600
-var cityRouter=require('./src/router/cityRouter')
-var hotelsRouter=require('./src/router/hotelsRouter')
+var hotelsRouter=express.Router()
 
 var hotels = [{
 	"id" : "6360",
@@ -159,63 +153,12 @@ var hotels = [{
     "min_price": "670",
 	"rating_text" : "Good"
 }]
-
-var city = [
-    {
-		"id": 1,
-		"name": "Delhi",
-		"country_id": 1,
-		"country_name": "India",
-		"country_flag_url": "https://b.zmtcdn.com/images/countries/flags/country_1.png",
-	},
-    {
-		"id": 3,
-		"name": "Mumbai",
-		"country_id": 1,
-		"country_name": "India",
-		"country_flag_url": "https://b.zmtcdn.com/images/countries/flags/country_1.png",
-		
-    },
-    {
-		"id": 280,
-		"name": "New York City, NY",
-		"country_id": 216,
-		"country_name": "United States",
-		"country_flag_url": "https://b.zmtcdn.com/images/countries/flags/country_216.png",
-		
-    },
-    {
-        "id": 32,
-		"name": "Pune",
-		"country_id": 1,
-		"country_name": "India",
-		"country_flag_url": "https://b.zmtcdn.com/images/countries/flags/country_1.png",
-	        
-	},
-	{
-		"id": 77,
-		"name": "Chandigrah",
-		"country_id": 1,
-		"country_name": "India",
-		"country_flag_url": "https://b.zmtcdn.com/images/countries/flags/country_1.png",
-	
-	},
-    {
-		"id": 4,
-		"name": "Bangalore",
-		"country_id": 1,
-		"country_name": "India",
-		"country_flag_url": "https://b.zmtcdn.com/images/countries/flags/country_1.png",
-    }
-]
-//middleware 
-app.use(morgan('short'))
-app.get('/',function(req, res) {
-    res.send('Hi from Express')
+hotelsRouter.route('/')
+.get(function(req, res) {
+    res.send(hotels)
 })
-app.use('/city', cityRouter)
-app.use('/hotels',hotelsRouter)
-app.listen(port,function(err){
-    if(err) throw err
-    console.log(`server is running on ${port}`)
+hotelsRouter.route('/details')
+.get(function(req, res) {
+    res.send("hotels details")
 })
+module.exports =hotelsRouter;

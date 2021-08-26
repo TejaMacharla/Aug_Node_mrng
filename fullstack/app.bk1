@@ -1,11 +1,8 @@
 var express=require('express')
-var morgan = require('morgan')
 var app=express()
-var dotenv = require('dotenv')
-dotenv.config()
-var port=process.env.PORT || 5600
-var cityRouter=require('./src/router/cityRouter')
-var hotelsRouter=require('./src/router/hotelsRouter')
+var port=5600
+var cityRouter=express.Router()
+var hotelsRouter=express.Router()
 
 var hotels = [{
 	"id" : "6360",
@@ -208,10 +205,25 @@ var city = [
 		"country_flag_url": "https://b.zmtcdn.com/images/countries/flags/country_1.png",
     }
 ]
-//middleware 
-app.use(morgan('short'))
 app.get('/',function(req, res) {
     res.send('Hi from Express')
+})
+cityRouter.route('/').
+get(function(req, res) {
+    res.send(city)
+})
+cityRouter.route('/details')
+.get(function(req, res) {
+    res.send("city details")
+})
+
+hotelsRouter.route('/')
+.get(function(req, res) {
+    res.send(hotels)
+})
+hotelsRouter.route('/details')
+.get(function(req, res) {
+    res.send("hotels details")
 })
 app.use('/city', cityRouter)
 app.use('/hotels',hotelsRouter)
