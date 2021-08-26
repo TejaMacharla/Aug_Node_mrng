@@ -155,7 +155,8 @@ var hotels = [{
 }]
 hotelsRouter.route('/')
 .get(function(req, res) {
-    res.send(hotels)
+   // res.send(hotels)
+   res.render('hotels',{title: 'Hotels Page',hotelsData:hotels});
 })
 hotelsRouter.route('/details')
 .get(function(req, res) {

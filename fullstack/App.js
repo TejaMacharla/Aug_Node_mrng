@@ -1,5 +1,6 @@
 var express=require('express')
 var morgan = require('morgan')
+var fs=require('fs')
 var app=express()
 var dotenv = require('dotenv')
 dotenv.config()
@@ -208,10 +209,22 @@ var city = [
 		"country_flag_url": "https://b.zmtcdn.com/images/countries/flags/country_1.png",
     }
 ]
-//middleware 
-app.use(morgan('short'))
+//save logs in file
+app.use(morgan('combined'))
+app.use(morgan('dev',{stream:fs.createWriteStream('./app.log',{flags:'a'})}))
+//static file path
+app.use(express.static(__dirname + "/public"))
+
+//html file
+app.set('views', './src/views')
+
+//view engine
+app.set('view engine','ejs')
+
+
 app.get('/',function(req, res) {
-    res.send('Hi from Express')
+    //res.send('Hi from Express')
+	res.render('home',{title:'Home Page',keyword:'Node FullStack'})//data binding
 })
 app.use('/city', cityRouter)
 app.use('/hotels',hotelsRouter)
